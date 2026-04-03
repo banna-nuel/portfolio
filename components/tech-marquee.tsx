@@ -3,33 +3,33 @@
 import { motion } from "framer-motion"
 
 const techItems = [
-  "NEXT.JS",
-  "REACT",
-  "TYPESCRIPT",
+  "ASTRO",
+  "TAILWIND CSS",
+  "HTML",
+  "CSS",
+  "JAVASCRIPT",
   "PYTHON",
-  "PYTORCH",
-  "LATENCY",
-  "INTUITION",
-  "OPENAI",
-  "EMPATHY",
-  "WEBGL",
   "NODE.JS",
-  "PRECISION",
+  "JAVA",
+  "SUPABASE",
+  "FIREBASE",
+  "SQL",
+  "GROQ",
 ]
 
 const concepts = [
-  "ARCHITECTURE",
-  "SYSTEMS",
-  "INTERFACES",
-  "ALGORITHMS",
-  "EMERGENCE",
-  "COGNITION",
-  "SYNTHESIS",
-  "VELOCITY",
-  "ENTROPY",
-  "FLUX",
-  "AXIOM",
-  "TENSOR",
+  "LLAMA 3.3",
+  "CLAUDE API",
+  "VERCEL",
+  "NETLIFY",
+  "GIT",
+  "GITHUB",
+  "CURSOR",
+  "VS CODE",
+  "POSTMAN",
+  "FIGMA",
+  "DRAW.IO",
+  "LUCIDCHART",
 ]
 
 function MarqueeRow({ items, direction = "left" }: { items: string[]; direction?: "left" | "right" }) {
@@ -70,7 +70,7 @@ function MarqueeRow({ items, direction = "left" }: { items: string[]; direction?
 
 export function TechMarquee() {
   return (
-    <section className="relative py-24 overflow-hidden md:py-32">
+    <section id="tech" className="relative py-24 overflow-hidden md:py-32">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -79,7 +79,7 @@ export function TechMarquee() {
         transition={{ duration: 0.8 }}
         className="px-8 md:px-12 mb-16"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">05 — TECHNICAL ARSENAL</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">02 — TECH STACK</p>
       </motion.div>
 
       {/* Marquee Rows */}

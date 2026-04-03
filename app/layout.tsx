@@ -15,13 +15,44 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "AI-Native Product Builder | Portfolio",
-  description: "System Architect & Interface Designer crafting intelligent digital experiences",
-    generator: 'v0.app'
+  title: "Emanuel Rodriguez | Full Stack Developer",
+  description: "Estudiante de Ingenieria Informatica apasionado por construir software que resuelve problemas reales. Combino logica y creatividad para proyectos web e inteligencia artificial.",
+  keywords: ["desarrollador", "full stack", "python", "astro", "supabase", "ia", "machine learning", "portafolio", "emanuel rodriguez"],
+  authors: [{ name: "Emanuel Rodriguez" }],
+  creator: "Emanuel Rodriguez",
+  openGraph: {
+    type: "website",
+    locale: "es_CO",
+    url: "https://emanuelrodriguez.dev",
+    title: "Emanuel Rodriguez | Full Stack Developer",
+    description: "Estudiante de Ingenieria Informatica apasionado por construir software que resuelve problemas reales. Combino logica y creatividad para proyectos web e inteligencia artificial.",
+    siteName: "Emanuel Rodriguez Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Emanuel Rodriguez | Full Stack Developer",
+    description: "Estudiante de Ingenieria Informatica apasionado por construir software con IA.",
+    creator: "@banna_nuel",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  generator: "v0.app",
 }
 
 export const viewport: Viewport = {
-  themeColor: "#1a1a1a",
+  themeColor: "#050505",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -30,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${geistMono.variable}`}>
+    <html lang="es" className={`${playfair.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased overflow-x-hidden">
         <div className="noise-overlay" />
         {children}

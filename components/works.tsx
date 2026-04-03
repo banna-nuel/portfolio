@@ -7,28 +7,36 @@ import { motion, useMotionValue, useSpring } from "framer-motion"
 
 const projects = [
   {
-    title: "Neural Interface",
-    tags: ["Next.js", "OpenAI", "WebGL"],
+    title: "Ray App",
+    tags: ["Python", "Astro", "Supabase", "Groq", "Tailwind"],
     image: "/abstract-neural-network-visualization-dark-theme.jpg",
-    year: "2024",
+    year: "2025",
+    description: "Sistema para controlar un PC con Windows desde el movil mediante comandos de texto o voz interpretados por IA. Arquitectura en tiempo real con agente Python autonomo.",
+    url: "https://ray-app-wine.vercel.app",
   },
   {
-    title: "Quantum Dashboard",
-    tags: ["React", "D3.js", "Python"],
+    title: "Valentin App",
+    tags: ["HTML/CSS/JS", "Firebase", "Netlify", "PWA"],
     image: "/futuristic-data-dashboard-dark-minimal.jpg",
-    year: "2024",
+    year: "2025",
+    description: "PWA para parejas y grupos con estados de animo, frases personalizadas por dia, subida de imagenes y base de datos en tiempo real. Disenada con amor y sin frameworks.",
+    url: "https://github.com/banna-nuel",
   },
   {
-    title: "Synthetic Memory",
-    tags: ["TypeScript", "LangChain", "Vector DB"],
+    title: "Deteccion de Intrusos",
+    tags: ["Orange", "Python", "KDD", "ML"],
     image: "/abstract-memory-storage-visualization.jpg",
-    year: "2023",
+    year: "2024",
+    description: "Sistema de clasificacion de trafico de red para detectar intrusiones usando machine learning. Modelo entrenado con dataset propio logrando precision perfecta.",
+    url: null,
   },
   {
-    title: "Echo Protocol",
-    tags: ["Rust", "WebAssembly", "Audio"],
+    title: "Mantenimiento Vehicular",
+    tags: ["Orange", "Arbol de Decision", "Data Mining"],
     image: "/sound-wave-visualization-dark-theme.jpg",
-    year: "2023",
+    year: "2024",
+    description: "Sistema de recomendacion de mantenimiento preventivo usando arboles de decision. Predice necesidades de servicio segun kilometraje, nivel de aceite y ruido del motor.",
+    url: null,
   },
 ]
 
@@ -51,7 +59,7 @@ export function Works() {
   }
 
   return (
-    <section className="relative py-32 px-8 md:px-12 md:py-24">
+    <section id="works" className="relative py-32 px-8 md:px-12 md:py-24">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -60,8 +68,8 @@ export function Works() {
         transition={{ duration: 0.8 }}
         className="mb-24"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">04 — SELECTED WORKS</p>
-        <h2 className="font-sans text-3xl md:text-5xl font-light italic">The Distortion Gallery</h2>
+        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">03 — PROYECTOS</p>
+        <h2 className="font-sans text-3xl md:text-5xl font-light italic">Trabajos Destacados</h2>
       </motion.div>
 
       {/* Projects List */}
@@ -78,7 +86,9 @@ export function Works() {
             onMouseLeave={() => setHoveredIndex(null)}
           >
             <a
-              href="#"
+              href={project.url || "#"}
+              target={project.url ? "_blank" : undefined}
+              rel={project.url ? "noopener noreferrer" : undefined}
               data-cursor-hover
               className="group flex flex-col md:flex-row md:items-center justify-between gap-4"
             >
