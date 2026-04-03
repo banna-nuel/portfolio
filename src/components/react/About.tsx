@@ -1,5 +1,3 @@
-"use client"
-
 import { useRef } from "react"
 import { motion, useScroll, useTransform, useSpring } from "framer-motion"
 import { Download } from "lucide-react"
@@ -41,18 +39,18 @@ export function About() {
         transition={{ duration: 0.8 }}
         className="px-8 md:px-12 mb-16"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">01 — SOBRE MI</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-4">01 — SOBRE MI</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic mb-8">Quien Soy</h2>
         
         {/* Bio Content */}
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl">
           <div className="space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-[#a3a3a3] leading-relaxed">
               Soy un desarrollador apasionado por crear experiencias digitales excepcionales. 
               Con mas de 5 anos de experiencia en desarrollo web, me especializo en construir 
               aplicaciones modernas, escalables y con un enfoque en la experiencia del usuario.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-[#a3a3a3] leading-relaxed">
               Mi enfoque combina el pensamiento sistemico con la creatividad, 
               buscando siempre soluciones elegantes a problemas complejos.
             </p>
@@ -73,7 +71,7 @@ export function About() {
           
           {/* Skills Grid */}
           <div>
-            <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-6">HABILIDADES CLAVE</p>
+            <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-6">HABILIDADES CLAVE</p>
             <div className="grid grid-cols-2 gap-4">
               {skills.map((skill, index) => (
                 <motion.div
@@ -84,8 +82,8 @@ export function About() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="flex items-center gap-2"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  <span className="font-mono text-sm text-foreground">{skill}</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]" />
+                  <span className="font-mono text-sm text-[#fafafa]">{skill}</span>
                 </motion.div>
               ))}
             </div>
@@ -101,7 +99,7 @@ export function About() {
         transition={{ duration: 0.8 }}
         className="px-8 md:px-12 mb-8"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">FILOSOFIA</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-4">FILOSOFIA</p>
       </motion.div>
 
       <div className="relative flex items-center overflow-hidden py-0 gap-0 h-16">

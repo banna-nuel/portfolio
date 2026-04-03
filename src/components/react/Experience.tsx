@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 
 const experiences = [
@@ -75,7 +73,7 @@ export function Experience() {
         transition={{ duration: 0.8 }}
         className="mb-24"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">04 — EXPERIENCIA</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-4">04 — EXPERIENCIA</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic mb-16">Trayectoria Profesional</h2>
 
         <div className="space-y-12">
@@ -89,23 +87,23 @@ export function Experience() {
               className="relative border-l border-white/20 pl-8 pb-8"
             >
               {/* Timeline dot */}
-              <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-accent" />
+              <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-[#2563eb]" />
               
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                 <div>
                   <h3 className="font-sans text-2xl md:text-3xl font-light">{exp.title}</h3>
-                  <p className="font-mono text-sm text-accent">{exp.company}</p>
+                  <p className="font-mono text-sm text-[#2563eb]">{exp.company}</p>
                 </div>
-                <span className="font-mono text-xs text-muted-foreground tracking-widest">{exp.period}</span>
+                <span className="font-mono text-xs text-[#a3a3a3] tracking-widest">{exp.period}</span>
               </div>
               
-              <p className="text-muted-foreground mb-4 max-w-2xl">{exp.description}</p>
+              <p className="text-[#a3a3a3] mb-4 max-w-2xl">{exp.description}</p>
               
               <div className="flex flex-wrap gap-2">
                 {exp.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="font-mono text-[10px] tracking-wider px-3 py-1 border border-white/20 rounded-full text-muted-foreground"
+                    className="font-mono text-[10px] tracking-wider px-3 py-1 border border-white/20 rounded-full text-[#a3a3a3]"
                   >
                     {tech}
                   </span>
@@ -133,7 +131,7 @@ export function Experience() {
         transition={{ duration: 0.8 }}
         className="mb-24"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">05 — FORMACION</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-4">05 — FORMACION</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic mb-16">Educacion</h2>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -146,10 +144,10 @@ export function Experience() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="p-6 border border-white/10 rounded-lg hover:border-white/20 transition-colors duration-300"
             >
-              <span className="font-mono text-xs text-muted-foreground tracking-widest">{edu.period}</span>
+              <span className="font-mono text-xs text-[#a3a3a3] tracking-widest">{edu.period}</span>
               <h3 className="font-sans text-xl md:text-2xl font-light mt-2 mb-2">{edu.degree}</h3>
-              <p className="font-mono text-sm text-accent mb-3">{edu.institution}</p>
-              <p className="text-sm text-muted-foreground">{edu.description}</p>
+              <p className="font-mono text-sm text-[#2563eb] mb-3">{edu.institution}</p>
+              <p className="text-sm text-[#a3a3a3]">{edu.description}</p>
             </motion.div>
           ))}
         </div>
@@ -171,7 +169,7 @@ export function Experience() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">06 — CERTIFICACIONES</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-4">06 — CERTIFICACIONES</p>
         <h2 className="font-sans text-3xl md:text-5xl font-light italic mb-16">Credenciales</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -183,13 +181,13 @@ export function Experience() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="group p-6 border border-white/10 rounded-lg hover:border-accent/50 transition-all duration-300"
+              className="group p-6 border border-white/10 rounded-lg hover:border-[#2563eb]/50 transition-all duration-300"
             >
-              <span className="font-mono text-xs text-accent tracking-widest">{cert.year}</span>
-              <h3 className="font-sans text-lg font-light mt-2 mb-2 group-hover:text-accent transition-colors duration-300">
+              <span className="font-mono text-xs text-[#2563eb] tracking-widest">{cert.year}</span>
+              <h3 className="font-sans text-lg font-light mt-2 mb-2 group-hover:text-[#2563eb] transition-colors duration-300">
                 {cert.name}
               </h3>
-              <p className="font-mono text-xs text-muted-foreground">{cert.issuer}</p>
+              <p className="font-mono text-xs text-[#a3a3a3]">{cert.issuer}</p>
             </motion.div>
           ))}
         </div>

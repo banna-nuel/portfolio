@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 
 const techItems = [
@@ -60,7 +58,7 @@ function MarqueeRow({ items, direction = "left" }: { items: string[]; direction?
             }}
           >
             {item}
-            <span className="mx-8 text-white/20">•</span>
+            <span className="mx-8 text-white/20">{"•"}</span>
           </span>
         ))}
       </motion.div>
@@ -79,7 +77,7 @@ export function TechMarquee() {
         transition={{ duration: 0.8 }}
         className="px-8 md:px-12 mb-16"
       >
-        <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-4">02 — TECH STACK</p>
+        <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-4">02 — TECH STACK</p>
       </motion.div>
 
       {/* Marquee Rows */}

@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
@@ -78,7 +76,7 @@ export function Footer() {
       <div className="px-8 md:px-12 py-8 border-t border-white/10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Local Time */}
-          <div className="font-mono text-xs tracking-widest text-muted-foreground">
+          <div className="font-mono text-xs tracking-widest text-[#a3a3a3]">
             <span className="mr-2">HORA LOCAL</span>
             <span className="text-white tabular-nums">{time}</span>
           </div>
@@ -90,7 +88,7 @@ export function Footer() {
                 key={link}
                 href="#"
                 data-cursor-hover
-                className="font-mono text-xs tracking-widest text-muted-foreground hover:text-white transition-colors duration-300"
+                className="font-mono text-xs tracking-widest text-[#a3a3a3] hover:text-white transition-colors duration-300"
               >
                 {link}
               </a>
@@ -98,7 +96,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="font-mono text-xs tracking-widest text-muted-foreground">© {new Date().getFullYear()} Tu Nombre</p>
+          <p className="font-mono text-xs tracking-widest text-[#a3a3a3]">&copy; {new Date().getFullYear()} Tu Nombre</p>
         </div>
       </div>
     </footer>
