@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
@@ -21,20 +23,13 @@ export function Footer() {
     return () => clearInterval(interval)
   }, [])
 
-  const scrollToContact = () => {
-    const element = document.querySelector("#contact")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
   return (
     <footer className="relative">
       {/* Main CTA */}
-      <motion.button
-        onClick={scrollToContact}
+      <motion.a
+        href="mailto:hello@example.com"
         data-cursor-hover
-        className="relative block w-full overflow-hidden text-left"
+        className="relative block overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -56,7 +51,7 @@ export function Footer() {
               }}
               transition={{ duration: 0.3 }}
             >
-              Trabajemos <span className="italic">Juntos</span>
+              Let's <span className="italic">Collaborate</span>
             </motion.h2>
 
             <motion.div
@@ -70,14 +65,14 @@ export function Footer() {
             </motion.div>
           </div>
         </div>
-      </motion.button>
+      </motion.a>
 
       {/* Footer Info */}
       <div className="px-8 md:px-12 py-8 border-t border-white/10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Local Time */}
-          <div className="font-mono text-xs tracking-widest text-[#a3a3a3]">
-            <span className="mr-2">HORA LOCAL</span>
+          <div className="font-mono text-xs tracking-widest text-muted-foreground">
+            <span className="mr-2">LOCAL TIME</span>
             <span className="text-white tabular-nums">{time}</span>
           </div>
 
@@ -88,7 +83,7 @@ export function Footer() {
                 key={link}
                 href="#"
                 data-cursor-hover
-                className="font-mono text-xs tracking-widest text-[#a3a3a3] hover:text-white transition-colors duration-300"
+                className="font-mono text-xs tracking-widest text-muted-foreground hover:text-white transition-colors duration-300"
               >
                 {link}
               </a>
@@ -96,7 +91,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="font-mono text-xs tracking-widest text-[#a3a3a3]">&copy; {new Date().getFullYear()} Tu Nombre</p>
+          <p className="font-mono text-xs tracking-widest text-muted-foreground">© {new Date().getFullYear()}</p>
         </div>
       </div>
     </footer>

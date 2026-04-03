@@ -1,6 +1,8 @@
+"use client"
+
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { SentientSphere } from "./SentientSphere"
+import { SentientSphere } from "./sentient-sphere"
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null)
@@ -27,11 +29,11 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-2">BIENVENIDO</p>
-          <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight">
-            TU
+          <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">01 — DISCIPLINE</p>
+          <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance">
+            SYSTEM
             <br />
-            <span className="italic">NOMBRE</span>
+            <span className="italic">ARCHITECT</span>
           </h2>
         </motion.div>
 
@@ -42,16 +44,15 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
         >
-          <motion.a
-            href="#about"
+          <motion.button
             data-cursor-hover
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative px-8 py-4 border border-white/20 rounded-full font-mono text-sm tracking-widest uppercase bg-transparent backdrop-blur-sm hover:bg-white hover:text-black transition-colors duration-500 block"
+            className="relative px-8 py-4 border border-white/20 rounded-full font-mono text-sm tracking-widest uppercase bg-transparent backdrop-blur-sm hover:bg-white hover:text-black transition-colors duration-500"
           >
-            Explorar
+            Initialize
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#2563eb] rounded-full animate-pulse" />
-          </motion.a>
+          </motion.button>
         </motion.div>
 
         {/* Bottom Right */}
@@ -61,11 +62,11 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="self-end text-right"
         >
-          <p className="font-mono text-xs tracking-[0.3em] text-[#a3a3a3] mb-2">ESPECIALIDAD</p>
-          <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight">
-            FULL STACK
+          <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground mb-2">02 — CRAFT</p>
+          <h2 className="font-sans text-4xl md:text-6xl lg:text-7xl font-light tracking-tight text-balance">
+            INTERFACE
             <br />
-            <span className="italic">DEVELOPER</span>
+            <span className="italic">DESIGNER</span>
           </h2>
         </motion.div>
       </motion.div>
@@ -79,10 +80,10 @@ export function Hero() {
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="font-mono text-[10px] tracking-widest text-[#a3a3a3] uppercase">Scroll</span>
+          <span className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-white/50 to-transparent" />
         </motion.div>
       </motion.div>
