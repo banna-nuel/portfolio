@@ -23,13 +23,20 @@ export function Footer() {
     return () => clearInterval(interval)
   }, [])
 
+  const scrollToContact = () => {
+    const element = document.querySelector("#contact")
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <footer className="relative">
       {/* Main CTA */}
-      <motion.a
-        href="mailto:hello@example.com"
+      <motion.button
+        onClick={scrollToContact}
         data-cursor-hover
-        className="relative block overflow-hidden"
+        className="relative block w-full overflow-hidden text-left"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -51,7 +58,7 @@ export function Footer() {
               }}
               transition={{ duration: 0.3 }}
             >
-              Let's <span className="italic">Collaborate</span>
+              Trabajemos <span className="italic">Juntos</span>
             </motion.h2>
 
             <motion.div
@@ -65,14 +72,14 @@ export function Footer() {
             </motion.div>
           </div>
         </div>
-      </motion.a>
+      </motion.button>
 
       {/* Footer Info */}
       <div className="px-8 md:px-12 py-8 border-t border-white/10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Local Time */}
           <div className="font-mono text-xs tracking-widest text-muted-foreground">
-            <span className="mr-2">LOCAL TIME</span>
+            <span className="mr-2">HORA LOCAL</span>
             <span className="text-white tabular-nums">{time}</span>
           </div>
 
@@ -91,7 +98,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="font-mono text-xs tracking-widest text-muted-foreground">© {new Date().getFullYear()}</p>
+          <p className="font-mono text-xs tracking-widest text-muted-foreground">© {new Date().getFullYear()} Tu Nombre</p>
         </div>
       </div>
     </footer>
