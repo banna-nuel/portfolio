@@ -4,7 +4,11 @@ import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Previene el error en tiempo de compilación si las variables en Vercel no están listas
+const supabase = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey) 
+  : null;
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -18,6 +22,12 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
+
+    if (!supabase) {
+      console.error('El cliente de Supabase no está configurado (faltan variables de entorno).');
+      setStatus('error');
+      return;
+    }
 
     const { error } = await supabase
       .from('contactos')
