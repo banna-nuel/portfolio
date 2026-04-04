@@ -11,37 +11,36 @@ function RotatingAvatar() {
   
   useFrame((state) => {
     if (meshRef.current) {
-      // Calculamos el progreso del scroll (considerando los primeros 1000px como rango de giro)
-      const scrollY = window.scrollY;
-      const scrollMax = 1000; // Ajusta este valor según cuando quieres que llegue a 60°
-      const scrollFactor = Math.min(scrollY / scrollMax, 1);
+      // Cálculo basado en la lógica del usuario:
+      // El rango total es la altura de una pantalla (porque el contenedor tiene 200vh y la mitad es sticky)
+      const rangeTotal = window.innerHeight;
+      const scrollHecho = window.scrollY;
       
-      // 60 grados en radianes
-      const scrollTargetRotationY = scrollFactor * (60 * Math.PI / 180);
+      // progreso entre 0 y 1
+      const progress = Math.min(Math.max(scrollHecho / rangeTotal, 0), 1);
       
-      // Seguimiento suave del mouse para el eje X (opcional, pero mejora la interactividad)
-      const targetMouseY = (state.mouse.y * Math.PI) / 10;
+      // grados entre 0 y 60
+      const targetRotationY = progress * (60 * Math.PI / 180);
       
-      // Aplicación de rotaciones
-      // El eje Y es dictado por el scroll (0 a 60 grados)
+      // Aplicación de rotación ultra suave (lerp para evitar saltos)
       meshRef.current.rotation.y = THREE.MathUtils.lerp(
         meshRef.current.rotation.y, 
-        scrollTargetRotationY, 
+        targetRotationY, 
         0.1
       );
       
-      // El eje X sigue al mouse de forma muy tenue
+      // Mantenemos una inclinación leve según el mouse (eje X) para efecto 4D
+      const targetMouseY = (state.mouse.y * Math.PI) / 20;
       meshRef.current.rotation.x = THREE.MathUtils.lerp(
         meshRef.current.rotation.x, 
         -targetMouseY, 
         0.05
       );
       
-      // Mantenemos la flotación sutil constante
-      meshRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 1.5) * 0.15;
+      // Flotación sutil independiente
+      meshRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 1) * 0.1;
     }
     
-    // Brillo dinámico sigue al mouse
     if (lightRef.current) {
       lightRef.current.position.x = state.mouse.x * 5;
       lightRef.current.position.y = state.mouse.y * 5;
@@ -49,7 +48,7 @@ function RotatingAvatar() {
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
+    <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.3}>
       <group>
         <pointLight ref={lightRef} distance={10} intensity={2} color="#3b82f6" />
         <mesh ref={meshRef}>

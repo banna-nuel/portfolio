@@ -2,54 +2,56 @@
 import Avatar3D from './Avatar3D';
 ---
 
-<section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20 px-8 lg:px-16 overflow-hidden">
-  {/* Blurred background effect */}
-  <div class="absolute top-1/4 -left-20 w-72 h-72 bg-blue-600/10 rounded-full blur-[120px]"></div>
-  <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[150px]"></div>
+<div class="relative h-[200vh]" id="hero-wrapper">
+  <section id="inicio" class="sticky top-0 h-screen flex items-center justify-center pt-20 px-8 lg:px-16 overflow-hidden">
+    {/* Blurred background effect */}
+    <div class="absolute top-1/4 -left-20 w-72 h-72 bg-blue-600/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600/10 rounded-full blur-[150px]"></div>
 
-  <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-    <div class="space-y-8">
-      <div class="space-y-2">
-        <p class="font-mono text-blue-500 tracking-[0.3em] uppercase text-sm animate-fade-in">Portafolio 2025</p>
-        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-tight">
-          EMANUEL<br />
-          <span class="italic font-light text-white/80">RODRIGUEZ</span>
-        </h1>
-      </div>
-      
-      <div class="space-y-6 max-w-lg">
-        <p class="text-xl text-slate-400 font-light leading-relaxed">
-          <span class="text-white font-medium">Full Stack Developer</span> en formación, enfocado en crear soluciones tecnológicas que resuelvan problemas reales mediante código limpio e inteligencia artificial.
-        </p>
+    <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div class="space-y-8">
+        <div class="space-y-2">
+          <p class="font-mono text-blue-500 tracking-[0.3em] uppercase text-sm animate-fade-in">Portafolio 2025</p>
+          <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-tight">
+            EMANUEL<br />
+            <span class="italic font-light text-white/80">RODRIGUEZ</span>
+          </h1>
+        </div>
         
-        <div class="flex flex-wrap gap-4 pt-4">
-          <a href="#contacto" class="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105 duration-300 shadow-xl shadow-white/5">
-            PROYECTOS
-          </a>
-          <a href="/cv.pdf" download="Emanuel_Rodriguez_CV.pdf" class="group flex items-center gap-3 px-8 py-4 border border-white/10 rounded-full hover:border-white/40 transition-all font-mono text-xs tracking-widest uppercase">
-            DESCARGAR CV
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-y-1 transition-transform"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          </a>
+        <div class="space-y-6 max-w-lg">
+          <p class="text-xl text-slate-400 font-light leading-relaxed">
+            <span class="text-white font-medium">Full Stack Developer</span> en formación, enfocado en crear soluciones tecnológicas que resuelvan problemas reales mediante código limpio e inteligencia artificial.
+          </p>
+          
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="#contacto" class="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105 duration-300 shadow-xl shadow-white/5">
+              PROYECTOS
+            </a>
+            <a href="/cv.pdf" download="Emanuel_Rodriguez_CV.pdf" class="group flex items-center gap-3 px-8 py-4 border border-white/10 rounded-full hover:border-white/40 transition-all font-mono text-xs tracking-widest uppercase">
+              DESCARGAR CV
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-y-1 transition-transform"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative h-[500px] lg:h-[600px] flex items-center justify-center">
+        <Avatar3D client:load />
+        
+        {/* Decorative label near avatar */}
+        <div class="absolute -bottom-4 right-10 p-4 glass rounded-2xl flex items-center gap-3 animate-bounce shadow-2xl z-30">
+          <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+          <span class="text-xs font-mono uppercase tracking-widest">Disponible para proyectos</span>
         </div>
       </div>
     </div>
 
-    <div class="relative h-[500px] lg:h-[600px] flex items-center justify-center">
-      <Avatar3D client:load />
-      
-      {/* Decorative label near avatar */}
-      <div class="absolute -bottom-4 right-10 p-4 glass rounded-2xl flex items-center gap-3 animate-bounce shadow-2xl z-30">
-        <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-        <span class="text-xs font-mono uppercase tracking-widest">Disponible para proyectos</span>
-      </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 animate-bounce">
+      <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-white/30">Scroll Down</span>
+      <div class="w-px h-12 bg-gradient-to-b from-white/30 to-transparent"></div>
     </div>
-  </div>
-
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 animate-bounce">
-    <span class="text-[10px] font-mono uppercase tracking-[0.4em] text-white/30">Scroll Down</span>
-    <div class="w-px h-12 bg-gradient-to-b from-white/30 to-transparent"></div>
-  </div>
-</section>
+  </section>
+</div>
 
 <style>
   .animate-fade-in {
