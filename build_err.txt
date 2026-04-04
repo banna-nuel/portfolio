@@ -1,0 +1,45 @@
+
+> portfolio-astro@0.0.1 build
+> astro build
+
+[2m22:58:03[22m [34m[content][39m Syncing content
+[2m22:58:03[22m [34m[content][39m Synced content
+[2m22:58:03[22m [34m[types][39m Generated [2m70ms[22m
+[2m22:58:03[22m [34m[build][39m output: [34m"static"[39m
+[2m22:58:03[22m [34m[build][39m mode: [34m"static"[39m
+[2m22:58:03[22m [34m[build][39m directory: [34mC:\unipaz-manuel\portfolio\dist\[39m
+[2m22:58:03[22m [34m[build][39m Collecting build info...
+[2m22:58:03[22m [34m[build][39m [32m✓ Completed in 108ms.[39m
+[2m22:58:03[22m [34m[build][39m Building static entrypoints...
+[33m[1m22:58:05[22m [WARN] [vite][39m 
+/noise.png referenced in /noise.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+[2m22:58:05[22m [34m[vite][39m [32m✓ built in 1.83s[39m
+[2m22:58:05[22m [34m[build][39m [32m✓ Completed in 1.91s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m22:58:05[22m [34m[vite][39m transforming...
+[2m22:58:13[22m [34m[vite][39m [32m✓[39m 2108 modules transformed.
+[2m22:58:14[22m [34m[vite][39m rendering chunks...
+[2m22:58:14[22m [34m[vite][39m computing gzip size...
+[2m22:58:14[22m [34m[vite][39m [2mdist/[22m[36m_astro/jsx-runtime.ClP7wGfN.js  [39m[1m[2m  1.00 kB[22m[1m[22m[2m │ gzip:   0.62 kB[22m
+[2m22:58:14[22m [34m[vite][39m [2mdist/[22m[36m_astro/index.DK-fsZOb.js        [39m[1m[2m  6.81 kB[22m[1m[22m[2m │ gzip:   2.73 kB[22m
+[2m22:58:14[22m [34m[vite][39m [2mdist/[22m[36m_astro/client.DQ0Z8FZJ.js       [39m[1m[2m136.69 kB[22m[1m[22m[2m │ gzip:  44.13 kB[22m
+[2m22:58:14[22m [34m[vite][39m [2mdist/[22m[36m_astro/ContactForm.BnAIJVkg.js  [39m[1m[2m197.37 kB[22m[1m[22m[2m │ gzip:  52.58 kB[22m
+[2m22:58:14[22m [34m[vite][39m [2mdist/[22m[36m_astro/Avatar3D.BxO2GbbL.js     [39m[1m[33m862.92 kB[39m[22m[2m │ gzip: 232.62 kB[22m
+[33m[1m22:58:14[22m [WARN] [vite][39m [33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[2m22:58:14[22m [34m[vite][39m [32m✓ built in 9.20s[39m
+
+[42m[30m generating static routes [39m[49m
+supabaseUrl is required.
+  [1mLocation:[22m
+    [4mC:\unipaz-manuel\portfolio\node_modules\@supabase\supabase-js\dist\index.mjs:150:25[24m
+  [1mStack trace:[22m
+[2m    at validateSupabaseUrl (file:///C:/unipaz-manuel/portfolio/node_modules/@supabase/supabase-js/dist/index.mjs:150:25)
+    at createClient (file:///C:/unipaz-manuel/portfolio/node_modules/@supabase/supabase-js/dist/index.mjs:586:9)
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async BuildPipeline.retrieveSsrEntry (file:///C:/unipaz-manuel/portfolio/node_modules/astro/dist/core/build/pipeline.js:221:15)
+    at async staticBuild (file:///C:/unipaz-manuel/portfolio/node_modules/astro/dist/core/build/static-build.js:87:5)[22m
