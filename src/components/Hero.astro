@@ -35,11 +35,7 @@ import Avatar3D from './Avatar3D';
     </div>
 
     <div class="relative h-[500px] lg:h-[600px] flex items-center justify-center">
-      {/* <Avatar3D client:load /> Desactivado temporalmente por incompatibilidad WebGL local */}
-      <div class="relative w-full max-w-sm aspect-[3/4] animate-float z-20">
-        <div class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent rounded-[3rem] blur-xl -z-10"></div>
-        <img src="/avatar.png" alt="Emanuel Rodriguez" class="w-full h-full object-cover drop-shadow-2xl" />
-      </div>
+      <Avatar3D client:load />
       
       {/* Decorative label near avatar */}
       <div class="absolute -bottom-4 right-10 p-4 glass rounded-2xl flex items-center gap-3 animate-bounce shadow-2xl z-30">

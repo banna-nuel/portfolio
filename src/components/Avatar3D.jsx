@@ -1,10 +1,12 @@
 import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, PerspectiveCamera, Image } from '@react-three/drei';
+import { Float, MeshDistortMaterial, PerspectiveCamera, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
 function RotatingAvatar() {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef(null);
+  
+  const texture = useTexture('/avatar.png');
   
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
@@ -22,14 +24,14 @@ function RotatingAvatar() {
 
   return (
     <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
-      <group ref={meshRef as any}>
-        <Image 
-          url="/avatar.png" 
-          transparent 
-          scale={[3.2, 4.26]} 
-          toneMapped={false}
+      <mesh ref={meshRef}>
+        <planeGeometry args={[3.2, 4.26]} />
+        <meshBasicMaterial 
+          map={texture} 
+          alphaTest={0.5}
+          side={THREE.DoubleSide} 
         />
-      </group>
+      </mesh>
     </Float>
   );
 }
