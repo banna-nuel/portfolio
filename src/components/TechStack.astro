@@ -1,0 +1,54 @@
+---
+const mainTech = ["ASTRO", "TAILWIND CSS", "NODE.JS", "PYTHON", "JAVA", "SUPABASE", "SQL", "FIREBASE"];
+const subTech = ["LLAMA 3.3", "CLAUDE API", "VERCEL", "NETLIFY", "GIT", "GITHUB", "CURSOR", "VS CODE"];
+---
+
+<section id="tech" class="py-32 overflow-hidden bg-black/20 border-t border-b border-white/5">
+    <div class="px-8 lg:px-16 mb-20 text-center">
+        <p class="font-mono text-blue-500 tracking-[0.3em] uppercase text-xs mb-4">02 — TECH STACK</p>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight italic uppercase">Herramientas & Conceptos</h2>
+    </div>
+
+    <div class="space-y-12">
+        <div class="relative flex overflow-hidden group">
+            <div class="animate-marquee whitespace-nowrap flex items-center gap-16 py-4">
+                {[...mainTech, ...mainTech].map((tech) => (
+                    <span class="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter opacity-10 hover:opacity-100 transition-all duration-700 cursor-default hover:text-blue-500 select-none">
+                        {tech}
+                        <span class="mx-12 text-blue-600/30 font-serif font-light">•</span>
+                    </span>
+                ))}
+            </div>
+        </div>
+
+        <div class="relative flex overflow-hidden group">
+            <div class="animate-marquee-reverse whitespace-nowrap flex items-center gap-16 py-4">
+                {[...subTech, ...subTech].map((tech) => (
+                    <span class="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter opacity-10 hover:opacity-100 transition-all duration-700 cursor-default hover:text-purple-500 select-none">
+                        {tech}
+                        <span class="mx-12 text-purple-600/30 font-serif font-light">•</span>
+                    </span>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .animate-marquee {
+        animation: marquee 30s linear infinite;
+    }
+    .animate-marquee-reverse {
+        animation: marquee-reverse 25s linear infinite;
+    }
+
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    @keyframes marquee-reverse {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+    }
+</style>

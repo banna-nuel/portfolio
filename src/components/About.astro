@@ -1,0 +1,64 @@
+---
+const skills = [
+  "Desarrollo Full Stack",
+  "Inteligencia Artificial",
+  "Aplicaciones Web",
+  "Bases de Datos",
+  "APIs con IA",
+  "Machine Learning",
+];
+---
+
+<section id="sobre-mi" class="relative py-32 md:py-24 overflow-hidden border-t border-white/5">
+	<div class="container mx-auto px-8 lg:px-16">
+		<div class="grid lg:grid-cols-2 gap-20 items-start">
+			<div class="space-y-12">
+				<div class="space-y-4">
+					<p class="font-mono text-blue-500 tracking-[0.3em] uppercase text-xs">01 — SOBRE MÍ</p>
+					<h2 class="text-4xl md:text-6xl font-black italic tracking-tighter">QUIEN SOY</h2>
+				</div>
+				
+				<div class="space-y-8 max-w-xl">
+					<p class="text-lg md:text-xl text-slate-400 font-light leading-relaxed">
+						Estudiante de <span class="text-white font-medium">Ingeniería Informática</span> apasionado por construir software que resuelve problemas reales. Combino lógica y creatividad para dar vida a proyectos que van desde aplicaciones web hasta sistemas con inteligencia artificial integrada.
+					</p>
+					<p class="text-2xl md:text-3xl font-light italic text-blue-500 font-serif leading-tight">
+						"Enamorándome del código, una función a la vez."
+					</p>
+				</div>
+				
+				<div class="pt-8">
+					<a href="/cv.pdf" download="Mi_Hoja_de_Vida.pdf" class="inline-flex items-center gap-4 px-10 py-5 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all transform hover:scale-105 duration-300">
+						DESCARGAR CV
+						<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+					</a>
+				</div>
+			</div>
+			
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
+				<!-- Decorative frame for skills -->
+				<div class="absolute -inset-4 bg-blue-600/5 blur-3xl -z-10"></div>
+				
+				{skills.map((skill, index) => (
+					<div 
+						class="p-8 glass rounded-3xl group hover:border-blue-500/50 transition-all duration-500 transform hover:-translate-y-2 cursor-default"
+					>
+						<div class="w-10 h-10 bg-white/5 rounded-xl mb-6 flex items-center justify-center group-hover:bg-blue-600/20 transition-colors">
+							<span class="text-blue-500 font-mono font-black text-xs">0{index + 1}</span>
+						</div>
+						<h3 class="text-xl font-bold tracking-tight mb-2 uppercase">{skill}</h3>
+						<div class="w-8 h-1 bg-blue-600 rounded-full group-hover:w-full transition-all duration-700"></div>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+  .glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+</style>

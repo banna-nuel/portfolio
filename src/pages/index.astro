@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import TechStack from '../components/TechStack.astro';
+import Projects from '../components/Projects.astro';
+import Experience from '../components/Experience.astro';
+import Education from '../components/Education.astro';
+import Certifications from '../components/Certifications.astro';
+import ContactForm from '../components/ContactForm';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Emanuel Rodriguez | Full Stack Developer Portfolio">
+	<Navbar />
+	<main class="relative">
+		<!-- Global background noise/texture -->
+		<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[100] bg-[url('/noise.png')]"></div>
+		
+		<Hero />
+		
+		<div class="space-y-0 relative z-10">
+			<About />
+			<TechStack />
+			<Projects />
+			<Experience />
+			<Education />
+			<Certifications />
+			
+			<section id="contacto" class="py-32 px-8 lg:px-16 border-t border-white/5 bg-gradient-to-b from-[#050505] to-black">
+				<div class="container mx-auto">
+					<div class="flex flex-col lg:flex-row gap-20 items-start justify-between">
+						<div class="max-w-xl space-y-12">
+							<div class="space-y-4">
+								<p class="font-mono text-blue-500 tracking-[0.3em] uppercase text-xs">07 — CONTACTO</p>
+								<h2 class="text-4xl md:text-6xl font-black italic tracking-tighter uppercase">Conversemos</h2>
+							</div>
+							
+							<p class="text-xl text-slate-400 font-light leading-relaxed">
+								¿Tienes un proyecto en mente, una propuesta de colaboración o simplemente quieres decir hola? No dudes en escribirme.
+							</p>
+
+							<div class="space-y-8">
+								<div class="flex items-center gap-6 group">
+									<div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-blue-600/20 group-hover:scale-110 transition-all duration-500">
+										<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+									</div>
+									<div class="space-y-1">
+										<p class="font-mono text-[10px] tracking-[0.2em] text-white/30 uppercase">Email</p>
+										<a href="mailto:emanuelrodriguezpadilla@gmail.com" class="text-lg font-light hover:text-blue-500 transition-colors">emanuelrodriguezpadilla@gmail.com</a>
+									</div>
+								</div>
+
+								<div class="flex items-center gap-6 group">
+									<div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-blue-600/20 group-hover:scale-110 transition-all duration-500">
+										<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+									</div>
+									<div class="space-y-1">
+										<p class="font-mono text-[10px] tracking-[0.2em] text-white/30 uppercase">Ubicación</p>
+										<span class="text-lg font-light">Barrancabermeja, Colombia</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<ContactForm client:visible />
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	main {
+		background-color: #050505;
+	}
+</style>

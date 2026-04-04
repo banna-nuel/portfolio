@@ -1,0 +1,56 @@
+---
+const experience = [
+  {
+    role: "Full Stack Developer (Trainee)",
+    company: "Freelance / Proyectos Personales",
+    period: "2024 - Presente",
+    description: "Desarrollo de aplicaciones web y sistemas de IA. Uso de tecnologías como Astro, Python, Supabase y Firebase para crear soluciones de software.",
+    points: [
+      "Implementación de agentes de IA para automatización.",
+      "Desarrollo de PWAs con bases de datos en tiempo real.",
+      "Integración de modelos de lenguaje (LLMs) en apps web."
+    ]
+  }
+];
+---
+
+<section id="experiencia" class="py-32 px-8 lg:px-16 border-t border-white/5">
+    <div class="mb-20">
+        <p class="font-mono text-blue-500 tracking-[0.3em] uppercase text-xs mb-4">04 — EXPERIENCIA</p>
+        <h2 class="text-4xl md:text-6xl font-black italic tracking-tighter uppercase">Trayectoria</h2>
+    </div>
+
+    <div class="max-w-4xl space-y-16">
+        {experience.map((exp) => (
+            <div class="relative pl-12 md:pl-20 group">
+                <div class="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-blue-600 via-blue-600/20 to-transparent"></div>
+                <div class="absolute -left-1 top-2 w-2.5 h-2.5 rounded-full bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.8)] group-hover:scale-125 transition-transform"></div>
+                
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div class="space-y-1">
+                            <h3 class="text-3xl md:text-4xl font-light tracking-tight">{exp.role}</h3>
+                            <p class="font-mono text-blue-500 text-sm tracking-widest uppercase">{exp.company}</p>
+                        </div>
+                        <span class="font-mono text-xs text-white/40 tracking-[0.2em] whitespace-nowrap pt-2 uppercase">
+                            {exp.period}
+                        </span>
+                    </div>
+
+                    <p class="text-slate-400 font-light leading-relaxed max-w-2xl">
+                        {exp.description}
+                    </p>
+
+                    <ul class="space-y-4">
+                        {exp.points.map((point) => (
+                            <li class="flex items-start gap-3 group/item">
+                                <div class="w-1.5 h-1.5 rounded-full bg-blue-600/50 mt-1.5 group-hover/item:bg-blue-600 transition-colors"></div>
+                                <span class="text-sm text-slate-300 font-light group-hover/item:text-white transition-colors">{point}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        ))}
+    </div>
+</section>

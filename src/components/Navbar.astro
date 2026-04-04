@@ -1,0 +1,67 @@
+---
+const navLinks = [
+  { name: 'INICIO', href: '#inicio' },
+  { name: 'SOBRE MÍ', href: '#sobre-mi' },
+  { name: 'TECH STACK', href: '#tech' },
+  { name: 'PROYECTOS', href: '#proyectos' },
+  { name: 'EXPERIENCIA', href: '#experiencia' },
+  { name: 'CONTACTO', href: '#contacto' },
+];
+---
+
+<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-500" id="main-nav">
+  <div class="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
+    <a href="/" class="group flex items-center gap-2">
+      <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <span class="text-white font-bold text-xs font-mono">ER</span>
+      </div>
+      <span class="font-bold tracking-tighter text-xl group-hover:text-blue-500 transition-colors">EMANUEL<span class="text-blue-500">.</span></span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-12">
+      <ul class="flex items-center gap-10">
+        {navLinks.map((link) => (
+          <li>
+            <a 
+              href={link.href} 
+              class="font-mono text-[10px] tracking-[0.3em] uppercase text-white/50 hover:text-white transition-colors duration-300 relative group py-2"
+            >
+              {link.name}
+              <span class="absolute bottom-0 left-0 w-0 h-px bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      
+      <a 
+        href="#contacto" 
+        class="group relative overflow-hidden px-8 py-3 bg-white/5 border border-white/10 rounded-full font-mono text-[10px] tracking-widest uppercase hover:bg-blue-600 transition-all duration-500"
+      >
+        <span class="relative z-10">Let&apos;s Talk</span>
+        <div class="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden p-2 text-white/70" id="mobile-menu-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav?.classList.add('bg-[#050505]/80', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-white/5');
+    } else {
+      nav?.classList.remove('bg-[#050505]/80', 'backdrop-blur-xl', 'py-4', 'border-b', 'border-white/5');
+    }
+  });
+
+  const btn = document.getElementById('mobile-menu-btn');
+  btn?.addEventListener('click', () => {
+    // Implement mobile menu if needed, but keeping it "clean" for now
+    alert('Mobile menu (Coming soon in final polish)');
+  });
+</script>
