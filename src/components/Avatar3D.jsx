@@ -10,20 +10,38 @@ function RotatingAvatar() {
   const texture = useTexture('/avatar.png');
   
   useFrame((state) => {
-    const time = state.clock.getElapsedTime();
     if (meshRef.current) {
-      // Movimiento ultra suave siguiendo el mouse
-      const targetX = (state.mouse.x * Math.PI) / 10;
-      const targetY = (state.mouse.y * Math.PI) / 10;
+      // Calculamos el progreso del scroll (considerando los primeros 1000px como rango de giro)
+      const scrollY = window.scrollY;
+      const scrollMax = 1000; // Ajusta este valor según cuando quieres que llegue a 60°
+      const scrollFactor = Math.min(scrollY / scrollMax, 1);
       
-      meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetX, 0.05);
-      meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, -targetY, 0.05);
+      // 60 grados en radianes
+      const scrollTargetRotationY = scrollFactor * (60 * Math.PI / 180);
       
-      // Flotación sutil
-      meshRef.current.position.y = Math.sin(time * 1.5) * 0.15;
+      // Seguimiento suave del mouse para el eje X (opcional, pero mejora la interactividad)
+      const targetMouseY = (state.mouse.y * Math.PI) / 10;
+      
+      // Aplicación de rotaciones
+      // El eje Y es dictado por el scroll (0 a 60 grados)
+      meshRef.current.rotation.y = THREE.MathUtils.lerp(
+        meshRef.current.rotation.y, 
+        scrollTargetRotationY, 
+        0.1
+      );
+      
+      // El eje X sigue al mouse de forma muy tenue
+      meshRef.current.rotation.x = THREE.MathUtils.lerp(
+        meshRef.current.rotation.x, 
+        -targetMouseY, 
+        0.05
+      );
+      
+      // Mantenemos la flotación sutil constante
+      meshRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 1.5) * 0.15;
     }
     
-    // La luz sigue al mouse para crear un brillo dinámico sobre la foto
+    // Brillo dinámico sigue al mouse
     if (lightRef.current) {
       lightRef.current.position.x = state.mouse.x * 5;
       lightRef.current.position.y = state.mouse.y * 5;
@@ -31,7 +49,7 @@ function RotatingAvatar() {
   });
 
   return (
-    <Float speed={3} rotationIntensity={0.2} floatIntensity={0.5}>
+    <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
       <group>
         <pointLight ref={lightRef} distance={10} intensity={2} color="#3b82f6" />
         <mesh ref={meshRef}>
@@ -39,6 +57,7 @@ function RotatingAvatar() {
           <meshBasicMaterial 
             map={texture} 
             alphaTest={0.5}
+            transparent={true}
             side={THREE.DoubleSide} 
           />
         </mesh>
