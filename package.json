@@ -26,7 +26,8 @@
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^4.0.0",
-    "three": "^0.183.2"
+    "three": "^0.183.2",
+    "three-mesh-bvh": "^0.8.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.2",
