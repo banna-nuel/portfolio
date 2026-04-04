@@ -38,6 +38,15 @@ function RotatingAvatar() {
   );
 }
 
+function AvatarFallback() {
+  return (
+    <mesh>
+      <planeGeometry args={[3.2, 4.26]} />
+      <meshStandardMaterial color="#2563eb" metalness={0.5} roughness={0.2} transparent opacity={0.5} />
+    </mesh>
+  );
+}
+
 export default function Avatar3D() {
   return (
     <div className="w-full h-full min-h-[400px]">
@@ -47,7 +56,7 @@ export default function Avatar3D() {
         <pointLight position={[10, 10, 10]} intensity={1} />
         <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} />
         
-        <Suspense fallback={null}>
+        <Suspense fallback={<AvatarFallback />}>
           <RotatingAvatar />
           <mesh position={[0, 0, -2]}>
             <sphereGeometry args={[5, 64, 64]} />
