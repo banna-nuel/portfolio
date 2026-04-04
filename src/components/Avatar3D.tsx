@@ -7,8 +7,8 @@ function RotatingAvatar() {
   const meshRef = useRef<THREE.Mesh>(null);
   
   // Cargamos la foto 2D. Es indispensable que guardes la foto en la 
-  // carpeta "public" con el nombre exacto de "avatar.jpg"
-  const texture = useTexture('/avatar.jpg');
+  // carpeta "public" con el nombre exacto de "avatar.png"
+  const texture = useTexture('/avatar.png');
   
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
