@@ -10,35 +10,17 @@ function RotatingAvatar() {
   const texture = useTexture('/avatar.png');
   
   useFrame((state) => {
+    const time = state.clock.getElapsedTime();
     if (meshRef.current) {
-      // Cálculo basado en la lógica del usuario:
-      // El rango total es la altura de una pantalla (porque el contenedor tiene 200vh y la mitad es sticky)
-      const rangeTotal = window.innerHeight;
-      const scrollHecho = window.scrollY;
+      // Seguimiento muy sutil del mouse (Parallax)
+      const targetX = (state.mouse.x * Math.PI) / 12;
+      const targetY = (state.mouse.y * Math.PI) / 12;
       
-      // progreso entre 0 y 1
-      const progress = Math.min(Math.max(scrollHecho / rangeTotal, 0), 1);
+      meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, targetX, 0.05);
+      meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, -targetY, 0.05);
       
-      // grados entre 0 y 60
-      const targetRotationY = progress * (60 * Math.PI / 180);
-      
-      // Aplicación de rotación ultra suave (lerp para evitar saltos)
-      meshRef.current.rotation.y = THREE.MathUtils.lerp(
-        meshRef.current.rotation.y, 
-        targetRotationY, 
-        0.1
-      );
-      
-      // Mantenemos una inclinación leve según el mouse (eje X) para efecto 4D
-      const targetMouseY = (state.mouse.y * Math.PI) / 20;
-      meshRef.current.rotation.x = THREE.MathUtils.lerp(
-        meshRef.current.rotation.x, 
-        -targetMouseY, 
-        0.05
-      );
-      
-      // Flotación sutil independiente
-      meshRef.current.position.y = Math.sin(state.clock.getElapsedTime() * 1) * 0.1;
+      // Flotación constante
+      meshRef.current.position.y = Math.sin(time * 1.2) * 0.1;
     }
     
     if (lightRef.current) {
@@ -48,7 +30,7 @@ function RotatingAvatar() {
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.1} floatIntensity={0.3}>
+    <Float speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
       <group>
         <pointLight ref={lightRef} distance={10} intensity={2} color="#3b82f6" />
         <mesh ref={meshRef}>
