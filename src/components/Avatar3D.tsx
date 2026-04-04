@@ -1,27 +1,38 @@
 import React, { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, PerspectiveCamera } from '@react-three/drei';
+import { Float, MeshDistortMaterial, PerspectiveCamera, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
 function RotatingAvatar() {
   const meshRef = useRef<THREE.Mesh>(null);
   
+  // Cargamos la foto 2D. Es indispensable que guardes la foto en la 
+  // carpeta "public" con el nombre exacto de "avatar.jpg"
+  const texture = useTexture('/avatar.jpg');
+  
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     if (meshRef.current) {
-      // Periodic rotation up to 45 degrees (pi/4)
-      meshRef.current.rotation.y = (Math.sin(time * 0.5) * Math.PI) / 4;
-      meshRef.current.rotation.x = (Math.cos(time * 0.3) * Math.PI) / 8;
+      // Movimiento suave que sigue el mouse o rota lentamente
+      const targetX = (state.mouse.x * Math.PI) / 8;
+      const targetY = (state.mouse.y * Math.PI) / 8;
+      
+      // Interpolación suave hacia la posición del mouse
+      meshRef.current.rotation.y += 0.05 * (targetX - meshRef.current.rotation.y);
+      meshRef.current.rotation.x += 0.05 * (-targetY - meshRef.current.rotation.x);
+      
+      // Flotación extra
+      meshRef.current.position.y = Math.sin(time * 2) * 0.1;
     }
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+    <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
       <mesh ref={meshRef}>
-        <boxGeometry args={[3, 4, 0.2]} />
-        <meshStandardMaterial color="#2563eb" metalness={0.5} roughness={0.2} />
-        {/* Placeholder: In a real app, this would use a texture with the user's photo */}
-        <meshStandardMaterial attach="material-4" color="#ffffff" /> 
+        {/* Un plano con las proporciones típicas de retrato vertical (por ej. 3:4) */}
+        <planeGeometry args={[3.2, 4.26]} />
+        {/* Utilizamos material básico para que la iluminación no oscurezca la foto */}
+        <meshBasicMaterial map={texture} side={THREE.DoubleSide} transparent opacity={1} />
       </mesh>
     </Float>
   );
