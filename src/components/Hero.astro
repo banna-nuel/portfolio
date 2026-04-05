@@ -39,22 +39,17 @@
     </div>
 
     <div class="relative h-[500px] lg:h-[600px] flex items-center justify-center">
-      {/* Container with perspective */}
-      <div class="relative w-full max-w-md aspect-[3/4] z-20" style="perspective: 900px;">
-        {/* Tilt Card */}
+      <div style="perspective: 900px;">
         <div 
-          id="avatar-card" 
-          class="relative w-full h-full rounded-[3rem] overflow-hidden transition-transform duration-500 ease-out"
-          style="transform-style: preserve-3d;"
+          id="tilt-card" 
+          class="relative w-full max-w-md aspect-[3/4] z-20 overflow-hidden"
+          style="transform-style: preserve-3d; will-change: transform; transition: transform 0.1s ease, box-shadow 0.1s ease;"
         >
-          {/* Gloss/Reflect effect */}
-          <div id="avatar-gloss" class="absolute inset-0 z-30 pointer-events-none opacity-0 transition-opacity duration-300"></div>
-          
           <div class="absolute inset-0 bg-blue-600/20 rounded-[3rem] blur-3xl -z-10"></div>
           <img 
             src="/avatar.png" 
             alt="Emanuel Rodriguez" 
-            class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(37,99,235,0.3)] transition-transform duration-700 hover:scale-105" 
+            class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(37,99,235,0.3)]" 
           />
           <!-- TODO: reemplazar con foto real + efecto scroll 3D -->
           {/* Degradado para suavizar el recorte inferior */}
@@ -77,43 +72,36 @@
 </section>
 
 <script>
-  const card = document.getElementById('avatar-card');
-  const gloss = document.getElementById('avatar-gloss');
+  const card = document.getElementById('tilt-card');
+  if (!card) throw new Error('no card');
 
-  if (card && gloss) {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -15;
-      const rotateY = ((x - centerX) / centerX) * 15;
-      
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      
-      // Brillo/Gloss
-      gloss.style.opacity = '1';
-      gloss.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.1) 0%, transparent 80%)`;
-    });
+  const MAX_TILT = 15; // grados máximos de inclinación
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transition = 'transform 0.6s ease';
-      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-      gloss.style.opacity = '0';
-      
-      // Quitar la transición después de que termine para que el mousemove sea fluido
-      setTimeout(() => {
-        card.style.transition = 'none';
-      }, 600);
-    });
-    
-    card.addEventListener('mouseenter', () => {
-        card.style.transition = 'none';
-    });
-  }
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    // Posición del cursor relativa al centro de la tarjeta
+    const x = (e.clientX - rect.left) / rect.width  - 0.5; // -0.5 a 0.5
+    const y = (e.clientY - rect.top)  / rect.height - 0.5; // -0.5 a 0.5
+
+    const rotateX = -y * MAX_TILT; // invertido para que se incline hacia el cursor
+    const rotateY =  x * MAX_TILT;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    card.style.boxShadow = `
+      ${rotateY * 2}px ${-rotateX * 2}px 40px rgba(37, 99, 235, 0.25),
+      0 25px 60px rgba(0,0,0,0.6)
+    `;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease';
+    card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    card.style.boxShadow = 'none';
+    // Reset transition después para que el mousemove vuelva a ser rápido
+    setTimeout(() => {
+      card.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
+    }, 600);
+  });
 </script>
 
 <style>
