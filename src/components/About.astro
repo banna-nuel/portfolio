@@ -27,11 +27,14 @@ const skills = [
 					</p>
 				</div>
 				
-				<div class="pt-8">
-					<a href="/cv.pdf" download="Mi_Hoja_de_Vida.pdf" class="inline-flex items-center gap-4 px-10 py-5 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 transition-all transform hover:scale-105 duration-300">
+				<div class="pt-8 relative group/cv inline-block">
+					<a href="#" class="inline-flex items-center gap-4 px-10 py-5 bg-blue-600/30 text-white/50 font-bold rounded-2xl cursor-not-allowed pointer-events-none border border-white/5">
 						DESCARGAR CV
-						<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+						<svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="opacity-50"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
 					</a>
+					<span class="absolute -top-4 left-1/2 -translate-x-1/2 px-3 py-1 bg-blue-600 text-[10px] rounded-lg opacity-0 group-hover/cv:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+						Próximamente
+					</span>
 				</div>
 			</div>
 			
