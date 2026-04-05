@@ -1,35 +1,79 @@
-# portfolio
+# 🚀 Portafolio de Emanuel Rodriguez
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+¡Bienvenido a mi portafolio personal! Soy un **Desarrollador Full Stack** en formación, estudiante de **Ingeniería Informática**, apasionado por crear soluciones tecnológicas innovadoras que resuelvan problemas reales mediante código limpio e inteligencia artificial.
 
-## Built with v0
+---
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+## 👨‍💻 Sobre Mí
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_DrjAtQS7UKo0n6KjS3cqyylqrZjV)
+Resido en **Barrancabermeja, Colombia**. Mi enfoque principal es el desarrollo de aplicaciones web modernas, la integración de IA y el aprendizaje automático (Machine Learning). Me considero un entusiasta de la tecnología que busca constantemente aprender y aplicar nuevas herramientas para mejorar la experiencia del usuario y la eficiencia de los procesos.
 
-## Getting Started
+> *"Enamorándome del código, una función a la vez."*
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 🛠️ Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Core Technologies
+- **Frontend:** Astro, Tailwind CSS, JavaScript (React/JSX)
+- **Backend:** Node.js, Python, Java
+- **Base de Datos:** Supabase (PostgreSQL), Firebase (Firestore/Realtime DB), SQL
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Herramientas & Conceptos de IA
+- **LLMs:** Llama 3.3, Claude API, Groq
+- **Machine Learning:** Orange, Data Mining
+- **DevOps/Tools:** Vercel, Netlify, Git, GitHub, VS Code, Cursor
 
-## Learn More
+---
 
-To learn more, take a look at the following resources:
+## 🌟 Proyectos Destacados
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+### 🟢 [Ray App](https://ray-app-wine.vercel.app) (2025)
+Sistema innovador para controlar un PC con Windows desde un dispositivo móvil mediante comandos de voz.
+- **Tecnologías:** Python, Astro, Supabase, Groq.
 
-<a href="https://v0.app/chat/api/kiro/clone/banna-nuel/portfolio" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+### 🟣 Valentin App (2025)
+Progressive Web App (PWA) diseñada para parejas, que incluye seguimiento de estados de ánimo y sincronización de base de datos en tiempo real.
+- **Tecnologías:** HTML/CSS/JS, Firebase, PWA.
+
+### 🟠 Mantenimiento Vehicular (2024)
+Sistema de recomendación de mantenimiento preventivo basado en árboles de decisiones y minería de datos.
+- **Tecnologías:** Orange, Data Mining.
+
+### 🔵 Detección de Intrusos (2024)
+Proyecto de seguridad informática enfocado en la clasificación de tráfico de red para detectar intrusiones utilizando Machine Learning.
+- **Tecnologías:** Orange, Python, ML.
+
+---
+
+## 🚀 Cómo ejecutar el proyecto localmente
+
+Este proyecto está construido con **Astro**.
+
+1. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+2. **Iniciar el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Construir para producción:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📬 Contacto
+
+¿Tienes alguna idea genial o simplemente quieres saludar? ¡Hablemos!
+
+- **GitHub:** [@banna-nuel](https://github.com/banna-nuel)
+- **LinkedIn:** [Emanuel Rodriguez](https://www.linkedin.com/in/manuel-rodriguez-developer)
+
+---
+
+Hecho con ❤️ en Barrancabermeja, Colombia. 🇨🇴
