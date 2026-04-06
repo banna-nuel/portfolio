@@ -24,6 +24,33 @@ const { title, description = "Emanuel Rodriguez - Professional Portfolio" } = As
 	</head>
 	<body class="bg-[#050505] text-white selection:bg-blue-600/30 antialiased overflow-x-hidden">
 		<slot />
+
+		<script>
+			function initReveal() {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('visible');
+							} else {
+								// Desvanecer solo si el elemento sale por ARRIBA
+								if (entry.boundingClientRect.top < 0) {
+									entry.target.classList.remove('visible');
+								}
+							}
+						});
+					},
+					{ threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+				);
+
+				document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
+					.forEach((el) => observer.observe(el));
+			}
+
+			// Inicializar en carga normal y en navegación con View Transitions
+			document.addEventListener('astro:page-load', initReveal);
+			initReveal();
+		</script>
 	</body>
 </html>
 
