@@ -28,19 +28,19 @@ Resido en **Barrancabermeja, Colombia**. Mi enfoque principal es el desarrollo d
 
 ##  Proyectos Destacados
 
-###  [Ray App](https://ray-app-wine.vercel.app) (2025)
+###  [Ray App](https://ray-app-wine.vercel.app) (2026)
 Sistema innovador para controlar un PC con Windows desde un dispositivo móvil mediante comandos de voz.
 - **Tecnologías:** Python, Astro, Supabase, Groq.
 
-###  Valentin App (2025)
+###  Valentin App (2026)
 Progressive Web App (PWA) diseñada para parejas, que incluye seguimiento de estados de ánimo y sincronización de base de datos en tiempo real.
 - **Tecnologías:** HTML/CSS/JS, Firebase, PWA.
 
-###  Mantenimiento Vehicular (2024)
+###  Mantenimiento Vehicular (2026)
 Sistema de recomendación de mantenimiento preventivo basado en árboles de decisiones y minería de datos.
 - **Tecnologías:** Orange, Data Mining.
 
-###  Detección de Intrusos (2024)
+###  Detección de Intrusos (2026)
 Proyecto de seguridad informática enfocado en la clasificación de tráfico de red para detectar intrusiones utilizando Machine Learning.
 - **Tecnologías:** Orange, Python, ML.
 
