@@ -28,11 +28,11 @@ Resido en **Barrancabermeja, Colombia**. Mi enfoque principal es el desarrollo d
 
 ##  Proyectos Destacados
 
-###  [Ray App](https://ray-app-wine.vercel.app) (2026)
+### 🟢 [Ray App](https://github.com/banna-nuel/ray-app) (2026)
 Sistema innovador para controlar un PC con Windows desde un dispositivo móvil mediante comandos de voz.
 - **Tecnologías:** Python, Astro, Supabase, Groq.
 
-###  Valentin App (2026)
+### 🟣 [Valentin App](https://github.com/banna-nuel/valentin-app) (2026)
 Progressive Web App (PWA) diseñada para parejas, que incluye seguimiento de estados de ánimo y sincronización de base de datos en tiempo real.
 - **Tecnologías:** HTML/CSS/JS, Firebase, PWA.
 
